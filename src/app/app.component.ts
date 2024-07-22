@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from "@angular/core";
+import { DataService } from "./services/data.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-dashboard';
+  data: any = {};
+  selectedDateRange = 'this-month';
+
+  constructor(private dataService: DataService) { }
+
+  ngOnInit(): void {
+    this.fetchData(this.selectedDateRange);
+  }
+
+  onDateRangeChange(dateRange: string): void {
+    this.selectedDateRange = dateRange;
+    this.fetchData(dateRange);
+  }
+
+  fetchData(dateRange: string): void {
+    this.dataService.getData(dateRange).subscribe(response => {
+      this.data = response[dateRange] || {};
+    });
+  }
 }

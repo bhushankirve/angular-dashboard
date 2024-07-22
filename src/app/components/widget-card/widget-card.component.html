@@ -1,0 +1,16 @@
+<div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+  <div class="flex items-start justify-between">
+    <div class="text-lg font-medium tracking-tight leading-6 truncate">{{ title }}</div>
+  </div>
+  <div class="flex flex-col items-center mt-2">
+    <div class="text-7xl sm:text-5xl font-bold tracking-tight leading-none">{{ value }}</div>
+    <div class="text-lg font-medium text-lime-600 dark:text-lime-500">
+      <i class="material-icons">arrow_upward</i>{{ change }}
+    </div>
+    <div class="flex items-baseline justify-center mt-5 text-secondary">
+      <div class="flex-auto">
+        <div class="text-xs text-slate-500 text-center">{{ comparisonText }}</div>
+      </div>
+    </div>
+  </div>
+</div>

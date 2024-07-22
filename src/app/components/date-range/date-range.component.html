@@ -1,0 +1,10 @@
+<div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden my-4 w-1/4">
+  <div class="flex text-base font-medium">Date Range</div>
+  <mat-form-field>
+    <mat-select [value]="'this-month'" (selectionChange)="onDateChange($event)">
+      <mat-option *ngFor="let date of DateRange" [value]="date.value">
+        {{date.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
